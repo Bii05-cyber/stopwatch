@@ -23,27 +23,26 @@
       box-shadow: transparent;
     }
 
-    @font-face {
-      font-family: 'DS-Digital';
-      src: url('DS-DIGIT.TTF') format('truetype');
-    }
+  @font-face {
+  font-family: 'DS-Digital';
+  src: url('DS-DIGIT.TTF') format('truetype');
+}
 
     #stopwatch {
       position: absolute;
       top: 120px;   /* vertical alignment for numbers */
-      left:155px;   /* horizontal alignment */
+      left:150px;   /* horizontal alignment */
       font-size: 3rem;
       font-weight: 500;
-      color: #222;
-      text-shadow: 
-        0 0 2px rgba(0, 180, 60, 0.25),   /* very soft greenish tint */
-        1px 1px 1px rgba(0,0,0,0.2);      /* gentle depth */
+      color: black;
+      text-shadow: 0 0 2px rgba(0,0,0,0.4); 
       font-family: 'DS-Digital', monospace;
       background: transparent;
       padding: 8px 16px;
       border-radius: 4px;
-      letter-spacing: 4px
-    
+      letter-spacing: 2px
+    }
+
     .controls {
       position: absolute;
       bottom: 45px;
@@ -61,7 +60,7 @@
       font-size: 0.9rem;
       font-weight: bold;
       background: transparent;
-      color: grey;
+      color: white;
     }
     .controls button:hover {
       background: transparent;
