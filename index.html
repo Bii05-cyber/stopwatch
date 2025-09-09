@@ -23,38 +23,38 @@
       box-shadow: transparent;
     }
 
-  @font-face {
-  font-family: 'DS-Digital';
-  src: url('DS-DIGIT.TTF') format('truetype');
-}
+    @font-face {
+      font-family: 'DS-Digital';
+      src: url('DS-DIGIT.TTF') format('truetype');
+    }
 
-
-    #stopwatch {
-      position: absolute;
-      top: 120px;   /* vertical alignment for numbers */
-      left:155px;   /* horizontal alignment */
-      font-size: 3rem;
-      font-weight: 500;
-      color: #222;
-      text-shadow: 
-        0 0 2px rgba(0, 180, 60, 0.25),   /* very soft greenish tint */
-        1px 1px 1px rgba(0,0,0,0.2);      /* gentle depth */
-      font-family: 'DS-Digital', monospace;
-      background: transparent;
-      padding: 8px 16px;
-      border-radius: 4px;
-      letter-spacing: 4px
+    #lcd {
+      position: relative;
+      display: inline-block;
     }
 
     .ghost {
       font-size: 3rem;
       font-family: 'DS-Digital', monospace;
-      color: rgba(0,0,0,0.3);       /* faint, dim background digits */
+      color: rgba(0,0,0,0.3);   /* stronger ghost */
       letter-spacing: 4px;
       position: absolute;
-      top: 120px;    /* shifted slightly down */
-      left: 155px;  /* shifted slightly left */
-      pointer-events: none;
+      top: 2px;   /* small shift down */
+      left: -2px; /* small shift left */
+      z-index: 1; /* stays behind */
+    }
+    
+    #stopwatch {
+      font-size: 3rem;
+      font-family: 'DS-Digital', monospace;
+      color: #222;
+      letter-spacing: 4px;
+      position: relative;
+      z-index: 2; /* stays on top */
+    
+      text-shadow: 
+        0 0 2px rgba(0, 180, 60, 0.25),
+        1px 1px 1px rgba(0,0,0,0.2);
     }
     
     .controls {
