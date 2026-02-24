@@ -80,25 +80,27 @@
 
   <script>
 // --- NON-FREEZING STOPWATCH ENGINE ---
-let startTime = null;   // when the stopwatch started running
-let elapsed = 0;        // total elapsed time in ms
-let isRunning = false;  
-let rafId = null;       // animation frame reference
+let startTime = null;
+let elapsed = 0;
+let isRunning = false;
+let rafId = null;
 
 function updateDisplay() {
   let total = elapsed;
-  let mins = String(Math.floor(total / 60000)).padStart(2, "0");
+
+  let hours = String(Math.floor(total / 3600000)).padStart(2, "0");
+  let mins = String(Math.floor((total % 3600000) / 60000)).padStart(2, "0");
   let secs = String(Math.floor((total % 60000) / 1000)).padStart(2, "0");
 
-  // Change this selector if your stopwatch ID is different
-  document.getElementById("stopwatch").textContent = `${hours}:${mins}:${secs}`;
+  document.getElementById("stopwatch").textContent =
+    `${hours}:${mins}:${secs}`;
 }
 
 function tick() {
   if (!isRunning) return;
-  elapsed = Date.now() - startTime;  // calculate true elapsed time
+  elapsed = Date.now() - startTime;
   updateDisplay();
-  rafId = requestAnimationFrame(tick); // refresh again
+  rafId = requestAnimationFrame(tick);
 }
 
 function startStop() {
@@ -106,9 +108,9 @@ function startStop() {
     isRunning = false;
     cancelAnimationFrame(rafId);
   } else {
-    startTime = Date.now() - elapsed;  // continue from previous elapsed
+    startTime = Date.now() - elapsed;
     isRunning = true;
-    tick(); // begin ticking
+    tick();
   }
 }
 
@@ -119,7 +121,7 @@ function reset() {
   updateDisplay();
 }
 
-updateDisplay();  // initialize
+updateDisplay();
   </script>
 </body>
 </html>
