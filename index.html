@@ -91,7 +91,7 @@ function updateDisplay() {
   let secs = String(Math.floor((total % 60000) / 1000)).padStart(2, "0");
 
   // Change this selector if your stopwatch ID is different
-  document.getElementById("stopwatch").textContent = `${mins}:${secs}`;
+  document.getElementById("stopwatch").textContent = `${hours}:${mins}:${secs}`;
 }
 
 function tick() {
